@@ -5,23 +5,19 @@ import { CameraHelper } from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
-// SCENE
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xa8def0);
 
-// CAMERA
 const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
 camera.position.y = 5;
 camera.position.z = 5;
 camera.position.x = 0;
 
-// RENDERER
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.shadowMap.enabled = true
 
-// CONTROLS
 const orbitControls = new OrbitControls(camera, renderer.domElement);
 orbitControls.enableDamping = true
 orbitControls.minDistance = 5
@@ -66,6 +62,7 @@ document.addEventListener('keydown', (event) => {
         (keysPressed as any)[event.key.toLowerCase()] = true
     }
 }, false);
+
 document.addEventListener('keyup', (event) => {
     keyDisplayQueue.up(event.key);
     (keysPressed as any)[event.key.toLowerCase()] = false
@@ -98,7 +95,7 @@ function generateFloor() {
     // TEXTURES
     const textureLoader = new THREE.TextureLoader();
     const placeholder = textureLoader.load("./textures/placeholder/placeholder.png");
-    const sandBaseColor = textureLoader.load("./textures/sand/Sand 002_COLOR.jpg");
+    const sandBaseColor = textureLoader.load("./textures/sand/grass-texture.jpg");
     const sandNormalMap = textureLoader.load("./textures/sand/Sand 002_NRM.jpg");
     const sandHeightMap = textureLoader.load("./textures/sand/Sand 002_DISP.jpg");
     const sandAmbientOcclusion = textureLoader.load("./textures/sand/Sand 002_OCC.jpg");

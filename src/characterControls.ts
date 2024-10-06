@@ -50,6 +50,7 @@ export class CharacterControls {
 
     public update(delta: number, keysPressed: any) {
         const directionPressed = DIRECTIONS.some(key => keysPressed[key] == true)
+        console.log()
 
         var play = '';
         if (directionPressed && this.toggleRun) {
